@@ -1,5 +1,5 @@
 <template>
-
+  <div class="visit-record">拜访记录</div>
 </template>
 
 <script>

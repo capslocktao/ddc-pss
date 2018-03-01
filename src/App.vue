@@ -15,7 +15,7 @@ export default {
     }
   },
   mounted(){
-    this.$router.push('/sale')
+    this.$router.push('/sale/visitRecord')
   },
   components:{
     Login
