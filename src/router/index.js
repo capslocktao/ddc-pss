@@ -11,9 +11,7 @@ import dealCustomer from '../containers/role-sale/deal-customer/deal-customer'
 Vue.use(Router);
 
 export default new Router({
-  beforeUpdate(){
-
-  },
+  mode: 'history',
   routes: [
     {
       path: '/login',
