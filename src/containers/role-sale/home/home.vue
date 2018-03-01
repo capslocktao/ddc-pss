@@ -6,7 +6,10 @@
       </router-link>
       <mt-button icon="more" slot="right"></mt-button>
     </mt-header>
-    <router-view></router-view>
+    <div class="sale-view">
+      <router-view></router-view>
+
+    </div>
     <div class="sale-tabbar">
       <router-link v-for="v in tabbar" class="sale-tabbar-item"  :key="v.path" :to="v.path">{{v.name}}</router-link>
     </div>
@@ -50,6 +53,9 @@
             this.currentPage = v.name
           }
         })
+        if(!sessionStorage.getItem("currentPath")){
+          this.$router.push('/sale/visitRecord')
+        }
       },
       updated(){
         this.tabbar.forEach(v=>{
@@ -57,7 +63,7 @@
             this.currentPage = v.name
           }
         })
-
+        console.log(window.location.pathname);
         sessionStorage.setItem("currentPath",window.location.pathname)
       },
       mounted(){

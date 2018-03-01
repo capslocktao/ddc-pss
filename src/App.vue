@@ -15,7 +15,7 @@ export default {
     }
   },
   mounted(){
-
+    //this.$router.push(`/sale`)
   },
   components:{
     Login
