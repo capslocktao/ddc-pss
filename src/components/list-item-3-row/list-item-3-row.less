@@ -1,0 +1,35 @@
+@import '../../common.style.config.less';
+.list-item-3-row{
+  margin:0 auto 20px auto;
+  font-size: @universalFontSize;
+  width: 96%;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #ededed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .left{
+    .title{
+      color: @universalColor;
+      margin-bottom: 5px;
+    }
+    .name{
+      span{
+        color: @universalFontColor;
+      }
+      .label{
+        color: @universalGrey;
+      }
+    }
+    .time{
+      color: @universalFontColor;
+    }
+    &:last-child{
+      margin-bottom: 0;
+    }
+  }
+  .right{
+    font-size: 30px;
+    color: @universalGrey;
+  }
+}

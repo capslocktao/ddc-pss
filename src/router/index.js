@@ -7,14 +7,14 @@ import visitPlan from '../containers/role-sale/visit-plan/visit-plan'
 import potentialClients from '../containers/role-sale/potential-clients/potential-clients'
 import personal from '../containers/role-sale/personal/personal'
 import dealCustomer from '../containers/role-sale/deal-customer/deal-customer'
-
+import customsDetail from '../containers/role-sale/customsDetail/customsDetail'
 Vue.use(Router);
 
 export default new Router({
   mode: 'history',
   routes: [
     {
-      path: '/login',
+      path: '/',
       name:"login",
       component:login,
     },
@@ -32,6 +32,11 @@ export default new Router({
           path: '/sale/visitRecord',
           name:"visitRecord",
           component:visitRecord,
+        },
+        {
+          path: '/sale/visitRecord/customsDetail',
+          name:"customsDetail",
+          component:customsDetail,
         },
         {
           path: '/sale/visitPlan',
