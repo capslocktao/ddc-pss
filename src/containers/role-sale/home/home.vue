@@ -51,6 +51,7 @@
         this.tabbar.forEach(v=>{
           if(window.location.pathname === v.path){
             this.currentPage = v.name
+            console.log(this)
           }
         })
         if(!sessionStorage.getItem("currentPath")){
