@@ -53,3 +53,9 @@ $color-primary: #ff9d37;
 .mint-datetime-action {
   color: $color-primary;
 }
+
+//覆盖样式
+.mint-cell-allow-right:after{
+    width: 10px;
+    height: 10px;
+}

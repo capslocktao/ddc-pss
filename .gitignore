@@ -16,3 +16,17 @@ selenium-debug.log
 *.ntvs*
 *.njsproj
 *.sln
+bower_components/axios/.bower.json
+bower_components/axios/bower.json
+bower_components/axios/CHANGELOG.md
+bower_components/axios/CODE_OF_CONDUCT.md
+bower_components/axios/COLLABORATOR_GUIDE.md
+bower_components/axios/ECOSYSTEM.md
+bower_components/axios/index.d.ts
+bower_components/axios/LICENSE
+bower_components/axios/README.md
+bower_components/axios/UPGRADE_GUIDE.md
+bower_components/axios/dist/axios.js
+bower_components/axios/dist/axios.map
+bower_components/axios/dist/axios.min.js
+bower_components/axios/dist/axios.min.map
