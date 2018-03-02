@@ -9,7 +9,7 @@ import 'mint-ui/lib/style.css'
 import 'iview/dist/styles/iview.css';
 import '../theme-config/dist/iview.css';
 import './mint-ui-theme/theme-config.scss';
-import { Tabbar, TabItem,Header ,Cell} from 'mint-ui';
+import { Tabbar, TabItem,Header,Cell,Picker,Popup } from 'mint-ui';
 
 
 Vue.config.productionTip = false
@@ -18,7 +18,9 @@ Vue.use(MintUI)
 Vue.component(Tabbar.name, Tabbar);
 Vue.component(TabItem.name, TabItem);
 Vue.component(Cell.name, Cell);
+Vue.component(Popup.name, Popup);
 
+Vue.component(Picker.name, Picker);
 Vue.component(Header.name, Header);
 /* eslint-disable no-new */
 new Vue({

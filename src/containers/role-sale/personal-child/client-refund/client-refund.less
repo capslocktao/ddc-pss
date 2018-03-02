@@ -1,0 +1,51 @@
+@import '../../../../common.style.config.less';
+.clientRefund {
+    padding: 1rem 0 1.2rem;
+    .filter {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 0.5rem;
+        padding-bottom: 0.1rem;
+        border-bottom: 1px solid #EEEEEE;
+        div {
+            line-height: 0.6rem;
+        }
+    }
+    .list {
+        li {
+            width: 96%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            margin-top: 0.1rem;
+            text-align: center;
+            p {
+                width: 1.2rem;
+                background: @universalColor ;
+                padding: 0.16rem 0;
+                border: 1px solid @universalColor;
+            }
+            div {
+                flex-grow: 1;
+                padding: 0.16rem 0;
+                border: 1px solid @universalColor;
+                img{
+                    
+                }
+            }
+        }
+    }
+}
+
+.picker {
+    background: #fff;
+    width: 100vw;
+    height: 4rem;
+    z-index: 100;
+    .pickerTop {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.2rem 0.3rem;
+        border-bottom: 1px solid #ddd;
+    }
+}

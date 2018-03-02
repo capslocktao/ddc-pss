@@ -17,22 +17,22 @@
 				listUrl: [{
 						path: "/sale/visitRecord",
 						name: "我的资料",
-						icon: "../../../../static/images/home_blue.png"
+						icon: "../../../assets/home_blue.png"
 					},
 					{
 						path: "/sale/personalChild/clientRefund",
 						name: "客户回款",
-						icon: "../../../../static/images/home_blue.png"
+						icon: "../../../assets/home_blue.png"
 					},
 					{
 						path: "/sale/potentialClients",
 						name: "数据统计",
-						icon: "../../../../static/images/home_blue.png"
+						icon: "../../../assets/home_blue.png"
 					},
 					{
 						path: "/sale/dealCustomer",
 						name: "密码修改",
-						icon: "../../../../static/images/home_blue.png"
+						icon: "../../../assets/home_blue.png"
 					}
 				]
 			}
