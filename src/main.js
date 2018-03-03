@@ -3,29 +3,36 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import store from './store'
 import iView from 'iView';
 import MintUI from 'mint-ui'
+import axios from 'axios' // 处理http请求
 import 'mint-ui/lib/style.css'
 import 'iview/dist/styles/iview.css';
 import '../theme-config/dist/iview.css';
 import './mint-ui-theme/theme-config.scss';
-import { Tabbar, TabItem,Header,Cell,Picker,Popup } from 'mint-ui';
+import { Tabbar, TabItem,Header,Cell,Picker,Popup,Loadmore } from 'mint-ui';
 
+Vue.prototype.$http = axios
+Vue.prototype.serverUrl = "http://139.198.15.210:8801/api/2"; //本地环境
+//Vue.prototype.serverUrl = "http://139.198.15.210:8801/api/2"; //开发环境
+//Vue.prototype.serverUrl = "http://139.198.15.210:8801/api/2"; //生产环境
 
 Vue.config.productionTip = false
 Vue.use(iView);
-Vue.use(MintUI)
+Vue.use(MintUI);
 Vue.component(Tabbar.name, Tabbar);
 Vue.component(TabItem.name, TabItem);
 Vue.component(Cell.name, Cell);
 Vue.component(Popup.name, Popup);
-
+Vue.component(Loadmore.name, Loadmore);
 Vue.component(Picker.name, Picker);
 Vue.component(Header.name, Header);
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })

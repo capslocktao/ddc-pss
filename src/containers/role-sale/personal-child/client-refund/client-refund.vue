@@ -7,127 +7,141 @@
 		</mt-header>
 		<div class="content">
 			<div class="filter">
-				<div @click="showPicker(slots)">{{year}}
+				<div @click="showPicker(slotsYear,'year')">{{year}}
 					<img src="../../../../assets/xiala.png" width="10" height="10">
 				</div>
-				<div>2019
+				<div @click="showPicker(slotsStore,'store')">{{store}}
 					<img src="../../../../assets/xiala.png" width="10" height="10">
 				</div>
 				<mt-button size="small" type="primary" @click.native="handleClick">搜索</mt-button>
 
 			</div>
 			<ul class="list">
-				<li v-for="item in listUrl" :key="item.path">
-					<!--<mt-cell :title="item.name" is-link :to="item.path">
-						<span>总收入</span>
-						<img slot="icon" :src="item.icon" width="16" height="16">
-					</mt-cell>-->
-					<p>1月</p>
-					<div>月回款：111元
-						<img src="../../../../assets/more.png" width="10" height="10">
-					</div>
+				<li v-for="item in data" :key="item.path">
+					<router-link :to="{path:'/sale/personalChild/monthlyRefund',query:{id:item.id}}">
+						<p>{{item.name}}</p>
+						<div>月回款：{{item.price}}元
+							<img src="../../../../assets/more.png" width="10" height="10">
+						</div>
+					</router-link>
 				</li>
 			</ul>
 		</div>
+		<div class="total">
+			<span>
+	年度回款总额：{{total}}元
+		
+	</span>
 
-		<mt-popup v-model="isShowPicker" position="bottom">
-			<div class="picker">
-				<div class="pickerTop">
-					<div>取消</div>
-					<div @click="handleConfirm">确认</div>
-				</div>
-				<mt-picker :slots="thisSlots" @change="onValuesChange"></mt-picker>
-			</div>
-		</mt-popup>
-
-		<!--<div class="pickerBox" v-show="isShowPicker">
-			<div class="shade" @click="pickerHide"></div>
-<div class="picker">					<div class="pickerTop">
-						<div>取消</div>
-						<div @click="handleConfirm">确认</div>
-					</div>
-					<mt-picker :slots="slots" @change="onValuesChange"></mt-picker>
-			</div>
-		</div>-->
-
+		</div>
+		
+		<picker :data="thisSlots" :isShowPicker="isShowPicker"></picker>
 	</div>
 </template>
 
 <script>
+	var dataJson=[{
+						name: "一月",
+						price: "1111",
+						id: "1"
+					},
+					{
+						name: "二月",
+						price: "2222",
+						id: "2"
+					},
+					{
+						name: "三月",
+						price: "33333",
+						id: "3"
+					},
+					{
+						name: "四月",
+						price: "4444",
+						id: "4"
+					}
+				]
+	import picker from "../../../../components/picker/picker";
+
 	export default {
 		name: "clientRefund",
 		data() {
 			return {
-				slots: [{
-					values: ['1990', '1991', '1992', '1993', '1994', '1995', '1996']
+				slotsYear: [{
+					values: [{
+						"name": '1990',
+						"id": 1
+					}, {
+						"name": '1991',
+						"id": 2
+					}]
 				}],
-
-				listUrl: [{
-						path: "/sale/visitRecord",
-						name: "一月",
-						price: "1",
-						icon: "../../../assets/home_blue.png"
-					},
-					{
-						path: "/sale/personalChild/clientRefund",
-						name: "二月",
-						price: "2",
-						icon: "../../../assets/home_blue.png"
-					},
-					{
-						path: "/sale/potentialClients",
-						name: "三月",
-						price: "3",
-						icon: "../../../assets/home_blue.png"
-					},
-					{
-						path: "/sale/dealCustomer",
-						name: "四月",
-						price: "4",
-						icon: "../../../assets/home_blue.png"
-					}
-				],
-				thisSlots:null,
+				slotsStore: [{
+					values: [{
+						"name": '北京',
+						"id": 1
+					}, {
+						"name": '上海',
+						"id": 2
+					}]
+				}],
+				data: [],
+				total: '',
+				thisSlots: null,
 				isShowPicker: false,
-				year: null
+				year: null,
+				store: null,
+				strName: null
 			}
 		},
-		created() {
+		components: { //模板注入
+			picker
+		},
+		created() { //实例已经创建完成
 
+		},
+
+		updated() { //虚拟 DOM 重新渲染
+
+		},
+		mounted() { //挂载到实例
 			
+//			this.$http.get(this.serverUrl+'/aaaa', {
+			//					params: {
+			//						id: this.$route.query.id,
+			//						page:this.page
+			//					}
+			//				})
+			//				.then(function(response) {
+			this.data = dataJson;
+			this.year = this.slotsYear[0].values[0].name; //初始化年份
+			this.store = this.slotsStore[0].values[0].name; //初始化店铺
+			this.total = 1000;
+			//				})
+			//				.catch(function(response) {
+			//					console.log(response);
+			//				});
 		},
-		updated() {
-			//      this.tabbar.forEach(v=>{
-			//        if(window.location.pathname === v.path){
-			//          this.currentPage = v.name
-			//        }
-			//      })
-			//
-			//      sessionStorage.setItem("currentPath",window.location.pathname)
-			console.log(this)
-		},
-		mounted() {
-			this.year=this.slots[0].values[0];
-		},
-		methods: {
-			onValuesChange(picker, values) {
-				console.log(this.year = values[0])
-			},
-			handleConfirm(e) {
-				console.log(this.num);
-				this.isShowPicker = false;
-			},
-			showPicker(data){ //Picker显示
-				console.log(data)
-				this.isShowPicker = true; 
+		methods: { //方法
+			showPicker(data, strName) { //Picker显示 带入数据和当前对象的字段
+				this.isShowPicker = true; //传入组件的数据的改变
 				this.thisSlots = data;
-			},
-			handleClick() {
-				
+				this.strName = strName;
 			}
 		},
-		computed: {
-
+		computed: { //计算属性
+			newData() {
+				console.log(2111)
+				return this.$store.state.picker.newData
+			}
+		},
+		watch: {
+			newData: function(val, oldval) {
+				var newData = this.$store.state.picker.newData
+				console.log(newData)
+				this[this.strName] = newData.name;
+				this.isShowPicker = false;
+			}
 		}
 
 	}
