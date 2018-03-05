@@ -1,5 +1,6 @@
 <template>
 	<div class="personal">
+    <mt-header fixed title="我的"/>
 		<div v-for="item in listUrl" :key="item.path">
 			<mt-cell :title="item.name" is-link :to="item.path">
 				<img slot="icon" :src="item.icon" width="16" height="16">
@@ -17,22 +18,22 @@
 				listUrl: [{
 						path: "/sale/visitRecord",
 						name: "我的资料",
-						icon: "../../../assets/home_blue.png"
+						icon: "@/assets/home_blue.png"
 					},
 					{
-						path: "/sale/personalChild/clientRefund",
+						path: "/sale/personal/clientRefund",
 						name: "客户回款",
-						icon: "../../../assets/home_blue.png"
+						icon: "@/assets/home_blue.png"
 					},
 					{
-						path: "/sale/potentialClients",
+						path: "/sale/personal/statistics",
 						name: "数据统计",
-						icon: "../../../assets/home_blue.png"
+						icon: "@/assets/home_blue.png"
 					},
 					{
-						path: "/sale/dealCustomer",
+						path: "/sale/personal/pwd",
 						name: "密码修改",
-						icon: "../../../assets/home_blue.png"
+						icon: "@/assets/home_blue.png"
 					}
 				]
 			}

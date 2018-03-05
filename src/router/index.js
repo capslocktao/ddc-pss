@@ -8,13 +8,10 @@ import potentialClients from '../containers/role-sale/potential-clients/potentia
 import personal from '../containers/role-sale/personal/personal'
 import dealCustomer from '../containers/role-sale/deal-customer/deal-customer'
 
-import clientRefund from '../containers/role-sale/personal-child/client-refund/client-refund'
-import monthlyRefund from '../containers/role-sale/personal-child/monthly-refund/monthly-refund'
-import detailRefund from '../containers/role-sale/personal-child/detail-refund/detail-refund'
+import clientRefund from '../containers/role-sale/personal/client-refund/client-refund'
+import monthlyRefund from '../containers/role-sale/personal/monthly-refund/monthly-refund'
+import detailRefund from '../containers/role-sale/personal/detail-refund/detail-refund'
 
-import customerDetail from '../containers/role-sale/deal-customer-child/customer-detail/customer-detail'
-import orderList from '../containers/role-sale/deal-customer-child/order-list/order-list'
-import purchaseList from '../containers/role-sale/deal-customer-child/purchase-list/purchase-list'
 
 
 
@@ -22,7 +19,8 @@ Vue.use(Router);
 
 export default new Router({
 	mode: 'history',
-	routes: [{
+	routes: [
+	  {
 			path: '/login',
 			name: "login",
 			component: login,
@@ -31,7 +29,8 @@ export default new Router({
 			path: '/sale',
 			name: "roleHome",
 			component: roleHome,
-			children: [{
+			children: [
+			  {
 					path: '/sale/dealCustomer',
 					name: "deal-customer",
 					component: dealCustomer
@@ -55,45 +54,23 @@ export default new Router({
 					path: '/sale/personal',
 					name: "personal",
 					component: personal
-				}
+				},
+        {
+          path: '/sale/personal/clientRefund',
+          name: "clientRefund",
+          component: clientRefund
+        },
+        {
+          path: '/sale/personal/monthlyRefund',
+          name: "monthlyRefund",
+          component: monthlyRefund
+        },
+        {
+          path: '/sale/personal/detailRefund',
+          name: "detailRefund",
+          component: detailRefund
+        },
 			]
-		},
-		{
-			path: '/sale/personalChild/clientRefund',
-			name: "clientRefund",
-			component: clientRefund
-
-		},
-		{
-			path: '/sale/personalChild/monthlyRefund',
-			name: "monthlyRefund",
-			component: monthlyRefund
-
-		},
-		{
-			path: '/sale/personalChild/detailRefund',
-			name: "detailRefund",
-			component: detailRefund
-
-		},
-    {
-      path: '/sale/dealCustomerChild/customerDetail',
-      name: "customerDetail",
-      component: customerDetail
-
-    },
-    {
-      path: '/sale/dealCustomerChild/purchaseList',
-      name: "purchaseList",
-      component: purchaseList
-
-    },
-    {
-      path: '/sale/dealCustomerChild/orderList',
-      name: "orderList",
-      component: orderList
-
-    }
-
+		}
 	]
 })

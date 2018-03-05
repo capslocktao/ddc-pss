@@ -1,10 +1,6 @@
 <template>
 	<div class="detailRefund">
-		<mt-header fixed title="回款详情">
-			<a @click='goto' slot="left">
-				<mt-button icon="back">返回</mt-button>
-			</a>
-		</mt-header>
+
 		<div class="content">
 			<mt-loadmore :bottom-method="loadBottom" :bottomDistance='bottomDistance' :bottom-all-loaded="allLoaded" ref="loadmore">
 				<ul v-for="(item,index) in pageList">
@@ -60,7 +56,7 @@
 			this.loadPageList(this.pageNum); //初次访问查询列表
 		},
 		methods: { //方法
-			goto() {
+			goBack() {
 				this.$router.go(-1);
 			},
 			loadBottom: function() {

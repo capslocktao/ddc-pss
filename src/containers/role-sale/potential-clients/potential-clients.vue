@@ -1,5 +1,8 @@
 <template>
-  <div class="pontential-clients">意向客户</div>
+  <div class="pontential-clients">
+    <mt-header fixed title="意向客户"/>
+
+  </div>
 </template>
 
 <script>

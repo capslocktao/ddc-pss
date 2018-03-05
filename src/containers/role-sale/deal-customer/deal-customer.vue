@@ -1,5 +1,6 @@
 <template>
   <div class="deal-customer">
+    <mt-header fixed title="成交客户"/>
     <div class="content">
       <mt-loadmore :bottom-method="loadBottom" :auto-fill="false" :bottomDistance='bottomDistance'
                    :bottom-all-loaded="allLoaded" ref="loadmore">

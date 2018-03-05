@@ -18,7 +18,7 @@
 			</div>
 			<ul class="list">
 				<li v-for="item in data" :key="item.path">
-					<router-link :to="{path:'/sale/personalChild/monthlyRefund',query:{id:item.id}}">
+					<router-link :to="{path:'/sale/personal/monthlyRefund',query:{id:item.id}}">
 						<p>{{item.name}}</p>
 						<div>月回款：{{item.price}}元
 							<img src="../../../../assets/more.png" width="10" height="10">
@@ -30,11 +30,11 @@
 		<div class="total">
 			<span>
 	年度回款总额：{{total}}元
-		
+
 	</span>
 
 		</div>
-		
+
 		<picker :data="thisSlots" :isShowPicker="isShowPicker"></picker>
 	</div>
 </template>
@@ -61,7 +61,7 @@
 						id: "4"
 					}
 				]
-	import picker from "../../../../components/picker/picker";
+	import picker from "@/components/picker/picker";
 
 	export default {
 		name: "clientRefund",
@@ -105,7 +105,7 @@
 
 		},
 		mounted() { //挂载到实例
-			
+
 //			this.$http.get(this.serverUrl+'/aaaa', {
 			//					params: {
 			//						id: this.$route.query.id,
@@ -131,7 +131,6 @@
 		},
 		computed: { //计算属性
 			newData() {
-				console.log(2111)
 				return this.$store.state.picker.newData
 			}
 		},
