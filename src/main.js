@@ -7,14 +7,16 @@ import store from './store'
 import iView from 'iView';
 import MintUI from 'mint-ui'
 import axios from 'axios' // 处理http请求
+import "./interceptor"
 import 'mint-ui/lib/style.css'
 import 'iview/dist/styles/iview.css';
 import '../theme-config/dist/iview.css';
 import './mint-ui-theme/theme-config.scss';
-import { Tabbar, TabItem,Header,Cell,Picker,Popup,Loadmore } from 'mint-ui';
+import { Tabbar, TabItem,Header,Cell,Field,Picker,Popup,Loadmore,Swipe, SwipeItem,Spinner } from 'mint-ui';
 
-Vue.prototype.$http = axios
-Vue.prototype.serverUrl = "http://139.198.15.210:8801/api/2"; //本地环境
+Vue.prototype.host = "";
+//Vue.prototype.$http = axios
+//Vue.prototype.serverUrl = "http://139.198.15.210:8801/api/2"; //本地环境
 //Vue.prototype.serverUrl = "http://139.198.15.210:8801/api/2"; //开发环境
 //Vue.prototype.serverUrl = "http://139.198.15.210:8801/api/2"; //生产环境
 
@@ -28,6 +30,10 @@ Vue.component(Popup.name, Popup);
 Vue.component(Loadmore.name, Loadmore);
 Vue.component(Picker.name, Picker);
 Vue.component(Header.name, Header);
+Vue.component(Field.name, Field);
+Vue.component(Swipe.name, Swipe);
+Vue.component(SwipeItem.name, SwipeItem);
+Vue.component(Spinner.name, Spinner);
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

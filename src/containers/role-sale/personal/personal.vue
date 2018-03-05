@@ -16,22 +16,22 @@
 		data() {
 			return {
 				listUrl: [{
-						path: "/sale/visitRecord",
+						path: `${this.host}/sale/visitRecord`,
 						name: "我的资料",
 						icon: "@/assets/home_blue.png"
 					},
 					{
-						path: "/sale/personal/clientRefund",
+						path: `${this.host}/sale/personal/clientRefund`,
 						name: "客户回款",
 						icon: "@/assets/home_blue.png"
 					},
 					{
-						path: "/sale/personal/statistics",
+						path: `${this.host}/sale/personal/statistics`,
 						name: "数据统计",
 						icon: "@/assets/home_blue.png"
 					},
 					{
-						path: "/sale/personal/pwd",
+						path: `${this.host}/sale/personal/pwd`,
 						name: "密码修改",
 						icon: "@/assets/home_blue.png"
 					}

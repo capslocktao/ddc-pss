@@ -4,7 +4,7 @@
       <router-view></router-view>
     </div>
     <div class="sale-tabbar">
-      <router-link v-for="v in tabbar" class="sale-tabbar-item" :key="v.path" :to="v.path">{{v.name}}</router-link>
+      <router-link v-for="v in tabbar" class="sale-tabbar-item" :key="v.path" @click.native="linkTo" :to="v.path">{{v.name}}</router-link>
     </div>
   </div>
 
@@ -18,23 +18,23 @@
           currentPage:"拜访记录",
           tabbar:[
             {
-              path:"/sale/visitRecord",
+              path:`${this.host}/sale/visitRecord`,
               name:"拜访记录"
             },
             {
-              path:"/sale/visitPlan",
+              path:`${this.host}/sale/visitPlan`,
               name:"拜访计划"
             },
             {
-              path:"/sale/potentialClients",
+              path:`${this.host}/sale/potentialClients`,
               name:"意向客户"
             },
             {
-              path:"/sale/dealCustomer",
+              path:`${this.host}/sale/dealCustomer`,
               name:"成交客户"
             },
             {
-              path:"/sale/personal",
+              path:`${this.host}/sale/personal`,
               name:"我的"
             },
           ]
@@ -44,12 +44,15 @@
         this.tabbar.forEach(v=>{
           if(window.location.pathname === v.path){
             this.currentPage = v.name;
-            console.log(this)
+
           }
         });
-        if(!sessionStorage.getItem("currentPath")){
+
+/*        if(!sessionStorage.getItem("currentPath")){
           this.$router.push('/sale/visitRecord')
-        }
+        }else{
+          this.$router.push(sessionStorage.getItem("currentPath"))
+        }*/
       },
       updated(){
         this.tabbar.forEach(v=>{
@@ -62,12 +65,16 @@
       mounted(){
       },
       methods:{
-
+        linkTo(e){
+          console.log(e.currentTarget)
+        }
       },
       computed:{
         currentPath(){
-
           return window.location.pathname
+        },
+        isLoading(){
+          console.log(this.$store.state.loading.isLoading);
         }
       },
 

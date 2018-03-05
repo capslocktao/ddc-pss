@@ -1,7 +1,7 @@
 <template>
 	<div class="clientRefund">
 		<mt-header fixed title="客户回款">
-			<router-link to="/sale/personal" slot="left">
+			<router-link :to="{path:`${this.host}/sale/personal`}" slot="left">
 				<mt-button icon="back">返回</mt-button>
 			</router-link>
 		</mt-header>

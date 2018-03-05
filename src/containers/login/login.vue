@@ -21,7 +21,7 @@
         },
       methods:{
         login(){
-          this.$router.push('/sale/visitRecord')
+          this.$router.push(`${this.host}/sale/visitRecord`)
         }
       }
     }

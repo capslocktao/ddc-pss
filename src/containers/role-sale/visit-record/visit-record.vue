@@ -8,14 +8,14 @@
       <div>搜索</div>
     </div>
     <div class="list-wrapper">
-      <listItem3Row v-for="v in recordData" :data="v" :key="v.id" :record="true"/>
+      <listItem3Row v-for="v in recordData" :data="v" :to="linkTo" :key="v.id" :record="true"/>
     </div>
 
   </div>
 </template>
 
 <script>
-  import listItem3Row from "../../../components/list-item-3-row/list-item-3-row";
+  import listItem3Row from "@/components/list-item-3-row/list-item-3-row";
     export default {
       name: "visit-record",
       components:{
@@ -46,7 +46,8 @@
               id:"4"
             }
 
-          ]
+          ],
+          linkTo:`${this.host}/sale/visitRecord/customsDetail`
         }
       }
     }

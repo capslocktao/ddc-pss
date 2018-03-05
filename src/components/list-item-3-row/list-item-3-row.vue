@@ -1,5 +1,5 @@
 <template>
-    <router-link :to="{path:'/sale/visitRecord/customsDetail',query:{id:data.id}}" class="list-item-3-row">
+    <router-link :to="{path:`${to}/${data.id}`}" class="list-item-3-row">
       <div class="left">
         <h3 class="title">
           {{data.title}}
@@ -26,6 +26,10 @@
           record:{
             type:Boolean,
             required:false
+          },
+          to:{
+            type:String,
+            required:true
           }
       },
       mounted(){

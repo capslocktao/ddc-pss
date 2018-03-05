@@ -1,4 +1,5 @@
 <template>
+
     <div>{{this.$route.query.id}}</div>
 </template>
 
