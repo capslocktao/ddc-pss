@@ -72,9 +72,6 @@
       computed:{
         currentPath(){
           return window.location.pathname
-        },
-        isLoading(){
-          console.log(this.$store.state.loading.isLoading);
         }
       },
 
