@@ -1,6 +1,7 @@
 const picker = {
     state:{
-      newData:""
+      newData:"",
+
     },
   mutations:{
     SELECTED_DONE(state,payload){

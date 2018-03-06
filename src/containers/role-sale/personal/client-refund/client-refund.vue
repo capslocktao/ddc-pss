@@ -5,12 +5,12 @@
 				<mt-button icon="back">返回</mt-button>
 			</router-link>
 		</mt-header>
-		<div class="content">
+		<div class="content" v-if="year">
 			<div class="filter">
-				<div @click="showPicker(slotsYear,'year')">{{year}}
+				<div @click="showPickerYear">{{year.name}}
 					<img src="../../../../assets/xiala.png" width="10" height="10">
 				</div>
-				<div @click="showPicker(slotsStore,'store')">{{store}}
+				<div @click="showPickerCity">{{city.name}}
 					<img src="../../../../assets/xiala.png" width="10" height="10">
 				</div>
 				<mt-button size="small" type="primary" @click.native="handleClick">搜索</mt-button>
@@ -34,13 +34,14 @@
 	</span>
 
 		</div>
-
-		<picker :data="thisSlots" :isShowPicker="isShowPicker"></picker>
+		<picker :data="slotsYear" :isShowPicker="isShowPickerYear" @selectCancel="stageCancel" @selectDone="stageSelectedYear"></picker>
+		<picker :data="slotsCity" :isShowPicker="isShowPickerCity" @selectCancel="stageCancel" @selectDone="stageSelectedCity"></picker>
 	</div>
 </template>
 
 <script>
-	var dataJson=[{
+	var dataJson=[
+	  {
 						name: "一月",
 						price: "1111",
 						id: "1"
@@ -76,7 +77,7 @@
 						"id": 2
 					}]
 				}],
-				slotsStore: [{
+				slotsCity: [{
 					values: [{
 						"name": '北京',
 						"id": 1
@@ -87,23 +88,18 @@
 				}],
 				data: [],
 				total: '',
-				thisSlots: null,
-				isShowPicker: false,
+
+        isShowPickerCity: false,
+        isShowPickerYear: false,
 				year: null,
-				store: null,
-				strName: null
+        city: null,
+
 			}
 		},
 		components: { //模板注入
 			picker
 		},
-		created() { //实例已经创建完成
 
-		},
-
-		updated() { //虚拟 DOM 重新渲染
-
-		},
 		mounted() { //挂载到实例
 
 //			this.$http.get(this.serverUrl+'/aaaa', {
@@ -114,8 +110,14 @@
 			//				})
 			//				.then(function(response) {
 			this.data = dataJson;
-			this.year = this.slotsYear[0].values[0].name; //初始化年份
-			this.store = this.slotsStore[0].values[0].name; //初始化店铺
+			this.year = {
+			  name:"1990",
+        id:"1"
+      }; //初始化年份
+			this.city = {
+			  name:"北京",
+        id:"1"
+      }; //初始化店铺
 			this.total = 1000;
 			//				})
 			//				.catch(function(response) {
@@ -123,12 +125,25 @@
 			//				});
 		},
 		methods: { //方法
-			showPicker(data, strName) { //Picker显示 带入数据和当前对象的字段
-				this.isShowPicker = true; //传入组件的数据的改变
-				this.thisSlots = data;
-				this.strName = strName;
-			}
-		},
+			showPickerYear() {
+				this.isShowPickerYear = true;
+			},
+      stageSelectedYear(data){
+        this.isShowPickerYear = false;
+        this.year = data
+      },
+      showPickerCity(){
+        this.isShowPickerCity = true
+      },
+      stageSelectedCity(data){
+        this.isShowPickerCity = false;
+        this.city = data
+      },
+      stageCancel(){
+        this.isShowPickerYear = false;
+        this.isShowPickerCity = false
+      }
+    },
 		computed: { //计算属性
 			newData() {
 				return this.$store.state.picker.newData
@@ -136,8 +151,7 @@
 		},
 		watch: {
 			newData: function(val, oldval) {
-				var newData = this.$store.state.picker.newData
-				console.log(newData)
+				let newData = this.$store.state.picker.newData;
 				this[this.strName] = newData.name;
 				this.isShowPicker = false;
 			}

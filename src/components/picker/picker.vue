@@ -1,6 +1,6 @@
 <template>
 	<div class="picker">
-		<mt-popup v-model="isShowPicker" :closeOnClickModal="type"  position="bottom">
+		<mt-popup v-model="isShowPicker" :closeOnClickModal="false" position="bottom">
 			<div class="pickerBox">
 				<div class="pickerTop">
 					<div @click="handleCancel">取消</div>
@@ -38,12 +38,14 @@
 				this.changData = values[0]
 			},
 			handleConfirm(e) { //确认点击事件
-        console.log(this.changData)
-        this.$store.dispatch("selectedDone",this.changData)
+
+        this.$emit("selectDone",this.changData)
+
 			},
       handleCancel(){
-        console.log(this.data[0].values[0])
-        this.$store.dispatch("selectedDone",this.data[0].values[0])
+        console.log(this.data[0].values[0]);
+        this.$emit("selectCancel");
+
       }
 		}
 

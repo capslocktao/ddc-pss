@@ -12,7 +12,7 @@ import 'mint-ui/lib/style.css'
 import 'iview/dist/styles/iview.css';
 import '../theme-config/dist/iview.css';
 import './mint-ui-theme/theme-config.scss';
-import { Tabbar, TabItem,Header,Cell,Field,Picker,Popup,Loadmore,Swipe, SwipeItem,Spinner } from 'mint-ui';
+import { Tabbar, TabItem,Header,Cell,Field,Picker,Popup,Loadmore,Swipe, SwipeItem,Spinner,DatetimePicker } from 'mint-ui';
 
 Vue.prototype.host = "";
 //Vue.prototype.$http = axios
@@ -20,7 +20,7 @@ Vue.prototype.host = "";
 //Vue.prototype.serverUrl = "http://139.198.15.210:8801/api/2"; //开发环境
 //Vue.prototype.serverUrl = "http://139.198.15.210:8801/api/2"; //生产环境
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 Vue.use(iView);
 Vue.use(MintUI);
 Vue.component(Tabbar.name, Tabbar);
@@ -34,6 +34,7 @@ Vue.component(Field.name, Field);
 Vue.component(Swipe.name, Swipe);
 Vue.component(SwipeItem.name, SwipeItem);
 Vue.component(Spinner.name, Spinner);
+Vue.component(DatetimePicker.name, DatetimePicker);
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
