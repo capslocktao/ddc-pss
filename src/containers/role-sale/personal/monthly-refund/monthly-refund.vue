@@ -1,13 +1,13 @@
 <template>
 	<div class="monthlyRefund">
 		<mt-header fixed title="日回款">
-			<router-link :to="{path:`${this.host}/sale/personal/clientRefund`}" slot="left">
+			<router-link :to="{path:`/sale/personal/clientRefund`}" slot="left">
 				<mt-button icon="back">返回</mt-button>
 			</router-link>
 		</mt-header>
 		<ul class="list">
 			<li v-for="(item,index) in data" :key="item.path">
-				<router-link :index="index" :to="{path:`${this.host}/sale/personal/detailRefund`,query:{id:item.id}}">
+				<router-link :index="index" :to="{path:`/sale/personal/detailRefund`,query:{id:item.id}}">
 					<p>{{item.name}}</p>
 					<div>日回款：{{item.price}}元
 						<img src="../../../../assets/more.png" width="10" height="10">
